@@ -1,1 +1,28 @@
  @import "tailwindcss";
+
+@keyframes classicSpacing {
+  from {
+    letter-spacing: 0.5px;
+  }
+  to {
+    letter-spacing: 2px;
+  }
+    0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+a.active p {
+  animation: classicSpacing 0.7s ease-out forwards;
+}
+
+ a.active hr{
+    display: block;
+ }

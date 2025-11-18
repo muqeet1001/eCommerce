@@ -1,7 +1,6 @@
-import {useState}from 'react'
+import { useState } from 'react'
 import { assets } from '../assets/assets'
-import { NavLink,Link } from 'react-router-dom'
-import Collection from './../pages/Collection';
+import { NavLink, Link } from 'react-router-dom'
 function Navbar() {
     const [visible, setvisible] = useState(false)
     return (
@@ -37,23 +36,23 @@ function Navbar() {
                         </div>
                     </div>
                 </div>
-                 <Link to='/card' className='relative'>
-             <img src={assets.cart_icon} className='w-5' alt="" />
-             <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[-8px]  '>10</p>
-            </Link>
-            <img onClick={()=>setvisible(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden ' alt="" />
+                <Link to='/card' className='relative'>
+                    <img src={assets.cart_icon} className='w-5' alt="" />
+                    <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[-8px]  '>10</p>
+                </Link>
+                <img onClick={() => setvisible(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden ' alt="" />
             </div>
             {/* sidebar menu for mobile */}
-            <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible?'w-full':'w-0'}`}>
+            <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-100' : 'w-0'}`}>
                 <div className='flex flex-col text-gray-600'>
-                    <div onClick={()=>setvisible(false)} className='flex items-center gap-4 p-3'>
+                    <div onClick={() => setvisible(false)} className='flex items-center gap-4 p-3'>
                         <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />
                         <p>Back</p>
                     </div>
-                    <NavLink onClick={()=>setvisible(false)} className='py-2 pl-6 border' to='/'>HOME</NavLink>
-                    <NavLink onClick={()=>setvisible(false)} className='py-2 pl-6 border'to='/collection'>COLLECTION</NavLink>
-                    <NavLink onClick={()=>setvisible(false)} className='py-2 pl-6 border'to='/about'>ABOUT</NavLink>
-                    <NavLink onClick={()=>setvisible(false)} className='py-2 pl-6 border'to='/'contact>CONTACT</NavLink>
+                    <NavLink onClick={() => setvisible(false)} className='py-2 pl-6 border' to='/'>HOME</NavLink>
+                    <NavLink onClick={() => setvisible(false)} className='py-2 pl-6 border' to='/collection'>COLLECTION</NavLink>
+                    <NavLink onClick={() => setvisible(false)} className='py-2 pl-6 border' to='/about'>ABOUT</NavLink>
+                    <NavLink onClick={() => setvisible(false)} className='py-2 pl-6 border' to='/' contact>CONTACT</NavLink>
                 </div>
             </div>
         </div>

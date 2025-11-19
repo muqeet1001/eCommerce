@@ -1,5 +1,6 @@
 import { createContext } from "react";
-import { products } from "../assets/assets"
+import { products } from "../assets/assets";
+
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
@@ -13,7 +14,7 @@ const ShopContextProvider = (props) => {
             {props.children}
         </ShopContext.Provider>
     )
-
 }
 
 export default ShopContextProvider;
+ 

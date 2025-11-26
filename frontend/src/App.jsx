@@ -11,7 +11,8 @@ import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
 function App() {
   return (
-    <div className=' app px-4  sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+   <div className=' app px-4  sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+   
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -24,6 +25,7 @@ function App() {
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/orders' element={<Orders />} />
       </Routes>
+      
     </div>
   )
 }

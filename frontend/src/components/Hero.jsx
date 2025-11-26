@@ -18,7 +18,6 @@ function Hero() {
                </div>
            </div>
            {/* Hero Right side */}
-            
        </div>
        <img className='w-full sm:w-1/2' src={assets.hero_img} alt="" />
     </div>

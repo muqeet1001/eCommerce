@@ -1,13 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ShopContext } from './../context/ShopContext';
+import { assets } from '../assets/assets';
+import Title from './../components/Title';
+import ProductItem from './../components/ProductItem';
 
 function Collection() {
-  const { product } = useContext(ShopContext);
+  const { products} = useContext(ShopContext);
   const [showFilter, setShowFilter] = React.useState(false);
+  const [filteredProducts, setFilteredProducts] = React.useState([]);
+  useEffect(()=>{
+    setFilteredProducts(products);
+  },[]);
+  console.log(products);
+
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
       <div className='min-w-60'>
-        <div className='my-2 text-xl flex items-center cursor-pointer gap-2'>FILTERS</div>
+
+        <div onClick={()=>setShowFilter(!showFilter)} className='my-2 text-xl flex items-center cursor-pointer gap-2'>FILTERS
+          <img className={`h-3 sm:hidden ${showFilter ? 'rotate-90':' '}`} src={assets.dropdown_icon} alt="" />
+        </div>
         {/* Catory Filter */}
         <div className={`border border-gray-300 pl-5 mt-6 ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
@@ -37,6 +49,26 @@ function Collection() {
               <input className='w-3 border-none outline-none' type="checkbox" value={'Winterwar'} />Winterwear
             </p>
           </div>
+        </div>
+      </div>
+      {/* Right side */}
+      <div className='flex-1'>
+        <div className='flex justify-between text-base sm:text-2xl mb-4'>
+          <Title text1={'ALL'} text2={'COLLECTIONS'}/>
+          {/* Sort Product */}
+          <select className='text-sm px-2 border border-gray-300'>
+           <option value="relavent">Sort by : Relavent</option>
+            <option value="lowtohigh">Sort by : Price Low to High</option>
+            <option value="hightolow">Sort by : Price High to Low</option>
+          </select>
+        </div>
+        {/* Map products */}
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:gridcol4 gap-4 gap-y-6 '>
+           {
+            filteredProducts.map((item,index)=>(
+              <ProductItem key={index} name={item.name} id={item._id} price={item.price} image={item.image} />
+            ))
+           }
         </div>
       </div>
     </div>

@@ -16,15 +16,17 @@ function Collection() {
 
 
   const toggleCategory = (e) => {
+    //if the catory is already selected then remove it else add it
     if (category.includes(e.target.value)) {
       setcategory(prev => prev.filter(item => item !== e.target.value))
-    }
+     }
     else {
       setcategory(prev => [...prev, e.target.value]);
-    }
+   }
   }
 
   const toggleCategorySub = (e) => {
+    //if the catory is already selected then remove it else add it
     if (subCategory.includes(e.target.value)) {
       setsubCategory(prev => prev.filter(item => item !== e.target.value))
     }
@@ -126,6 +128,7 @@ function Collection() {
         </div>
       </div>
     </div>
+
   )
 }
 

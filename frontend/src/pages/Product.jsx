@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { ShopContext } from './../context/ShopContext';
 import { assets } from '../assets/assets';
+import RelatedProducts from './../components/RelatedProducts';
 export default function Product() {
 
 
@@ -82,7 +83,7 @@ export default function Product() {
 
             </div>
             <button className='bg-black text-white px-8 py-3 text-sm active:bg-gray-700'>ADD TO CARD</button>
-            <hr  className='mt-8 sm:w-4/5'/>
+            <hr className='mt-8 sm:w-4/5' />
             <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
               <p>100% Origainal product.</p>
               <p>Cash on delivery is available on this product.</p>
@@ -90,6 +91,19 @@ export default function Product() {
             </div>
           </div>
         </div>
+        {/* Revies section */}
+        <div className='mt-20'>
+          <div className='flex'>
+            <b className='border px-5 py-3 text-sm'>Description</b>
+            <p className='border px-5 py-3 text-sm'>Reviews(122)</p>
+          </div>
+          <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
+            <p>An e-commerce website is a digital platform that allows users to browse products, compare prices, and purchase items online. It provides secure payment methods, product reviews, order tracking, and customer support, making shopping fast, convenient, and accessible from anywhere at any time.</p>
+            <p>An e-commerce website is an online platform where users can browse, select, and purchase products or services. It supports secure payments, order management, and home delivery, making shopping easy, fast, and convenient without visiting physical stores.</p>
+          </div>
+        </div>
+        {/* related products */}
+        <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
       </div>
     </>
   ) : <div className='opacity:0'></div>

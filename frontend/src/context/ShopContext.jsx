@@ -49,7 +49,9 @@ const ShopContextProvider = (props) => {
         return totalCount;
     }
 
-
+  const updateQuantity = async (itemID, size,quantity) =>{
+        
+  }
     const value = {
         products, currency, delivery_fee,
         search, setsearch,

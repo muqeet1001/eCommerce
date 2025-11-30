@@ -47,7 +47,7 @@ function Navbar() {
                 <img onClick={() => setvisible(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="" />
             </div>
             {/* sidebar menu for mobile */}
-            <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-100' : 'w-0'}`}>
+            <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'hidden'}`}>
                 <div className='flex flex-col text-gray-600'>
                     <div onClick={() => setvisible(false)} className='flex items-center gap-4 p-3'>
                         <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />

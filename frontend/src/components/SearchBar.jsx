@@ -16,6 +16,8 @@ function SearchBar() {
             setvisible(false);
         }
     }, [location.pathname, showSearch])
+
+    
     return showSearch && visible ? (
         <div className=" text-center overflow-hidden">
 

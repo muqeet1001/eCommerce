@@ -9,14 +9,16 @@ function Collection() {
 
   const { products,search,showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = React.useState(false);
+  //main thing
   const [filteredProducts, setFilteredProducts] = useState([]);
+  
   const [category, setcategory] = useState([]);
   const [subCategory, setsubCategory] = useState([]);
   const [sortType, setSortType] = useState('relavent');
 
 
   const toggleCategory = (e) => {
-    //if the catory is already selected then remove it else add it
+
     if (category.includes(e.target.value)) {
       setcategory(prev => prev.filter(item => item !== e.target.value))
      }

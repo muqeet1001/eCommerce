@@ -91,6 +91,7 @@ export default function Product() {
             </div>
           </div>
         </div>
+        <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
         {/* Revies section */}
         <div className='mt-20'>
           <div className='flex'>
@@ -103,8 +104,10 @@ export default function Product() {
           </div>
         </div>
         {/* related products */}
-        <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
+         
       </div>
     </>
-  ) : <div className='opacity:0'></div>
+  ) : <div className='opacity:0'>
+    <p>Product not found sorry iska kuch hota he nahi hai</p>
+  </div>
 }

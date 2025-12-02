@@ -9,7 +9,7 @@ function Collection() {
 
   const { products,search,showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = React.useState(false);
-  //main thing
+
   const [filteredProducts, setFilteredProducts] = useState([]);
   
   const [category, setcategory] = useState([]);
@@ -73,6 +73,9 @@ function Collection() {
   useEffect(() => {
     sortProducts()
   }, [sortType]);
+
+
+  
 
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>

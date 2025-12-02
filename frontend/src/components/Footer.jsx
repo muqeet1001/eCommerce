@@ -12,10 +12,10 @@ function Footer() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
+
         <div>
           <p className='text-xl font-medium mb-5'>COMPANY</p>
           <ul className='flex flex-col gap-1 text-gray-600'>
-
             <NavLink to='/'>
               <p>HOME</p>
             </NavLink>
@@ -30,6 +30,7 @@ function Footer() {
             </NavLink>
           </ul>
         </div>
+
         <div>
           <p className='text-xl font-medium mb-5'>GET IN TOUCH</p>
           <ul className='flex flex-col gap-1 text-gray-600'>
@@ -37,6 +38,7 @@ function Footer() {
             <li>abdul00muqeet@gmail.com</li>
           </ul>
         </div>
+        
       </div>
       <div>
         <hr className='border-gray-300' />

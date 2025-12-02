@@ -8,7 +8,7 @@ function SearchBar() {
     const [visible, setvisible] = useState(false);
 
     const location = useLocation();
-
+          
     useEffect(() => {
         if (location.pathname.includes('collection') && showSearch) {
             setvisible(true);

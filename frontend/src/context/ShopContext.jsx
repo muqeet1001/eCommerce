@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
-    const currency = "$";
+    const currency = "₹";
     const delivery_fee = 10;
     const [search, setsearch] = useState('');
     const [showSearch, setshowSearch] = useState(false);
@@ -14,7 +14,7 @@ const ShopContextProvider = (props) => {
     const addToCart = async (itemId, size) => {
         let cartData = structuredClone(cartItems);
         if (!size) {
-            toast.error('BKL Size tera baap select kare ga ');
+            toast.error('Please select the size ');
             return;
         }
         if (cartData[itemId]) {
@@ -49,9 +49,9 @@ const ShopContextProvider = (props) => {
         return totalCount;
     }
 
-  const updateQuantity = async (itemID, size,quantity) =>{
-        
-  }
+    const updateQuantity = async (itemID, size, quantity) => {
+
+    }
     const value = {
         products, currency, delivery_fee,
         search, setsearch,

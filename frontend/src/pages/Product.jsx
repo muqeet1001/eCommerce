@@ -5,7 +5,7 @@ import { assets } from '../assets/assets';
 import RelatedProducts from './../components/RelatedProducts';
 export default function Product() {
 
-
+ 
   const { productId } = useParams();
   const { products, currency , addToCart} = useContext(ShopContext);
   const [productData, setproductData] = useState(false);

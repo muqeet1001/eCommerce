@@ -28,7 +28,6 @@ function Collection() {
   }
 
   const toggleCategorySub = (e) => {
-    //if the catory is already selected then remove it else add it
     if (subCategory.includes(e.target.value)) {
       setsubCategory(prev => prev.filter(item => item !== e.target.value))
     }
@@ -53,7 +52,7 @@ function Collection() {
     }
 
      setFilteredProducts(result);
-  }, [category, subCategory, products,search,showSearch]);
+  }, [category, subCategory, products,search]);
 
 
   const sortProducts = () => {
@@ -73,7 +72,6 @@ function Collection() {
   useEffect(() => {
     sortProducts()
   }, [sortType]);
-
 
   
 

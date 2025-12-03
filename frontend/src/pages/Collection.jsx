@@ -9,7 +9,7 @@ function Collection() {
 
   const { products,search,showSearch } = useContext(ShopContext);
   const [showFilter, setShowFilter] = React.useState(false);
-
+ //main products
   const [filteredProducts, setFilteredProducts] = useState([]);
   
   const [category, setcategory] = useState([]);

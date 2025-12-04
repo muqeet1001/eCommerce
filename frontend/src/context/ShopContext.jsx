@@ -61,12 +61,31 @@ const ShopContextProvider = (props) => {
              cartData[itemID][size] = quantity;
              setCartItems(cartData);
     }
-    const value = {
+   
+
+    const getCartAmout = () =>{
+        let totalAmount = 0;
+        for(const items in cartItems){
+            let itemsInfo = products.find((product)=>product._id === items);
+            for(const item in cartItems[items]){
+                try{
+                    if(cartItems[items][item]>0){
+                        totalAmount+=itemsInfo.price * cartItems[items][item];
+                    }
+                }
+                catch(error){
+                    console.log(error);
+                    
+                }
+            }
+        }
+        return totalAmount;
+    }
+  const value = {
         products, currency, delivery_fee,
         search, setsearch,
-        showSearch, setshowSearch, cartItems, addToCart, getCartCount,updateQuantity
+        showSearch, setshowSearch, cartItems, addToCart, getCartCount,updateQuantity, getCartAmout
     }
-
     return (
         <ShopContext.Provider value={value}>
             {props.children}

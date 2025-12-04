@@ -7,8 +7,11 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
     const currency = "₹";
     const delivery_fee = 10;
+    
     const [search, setsearch] = useState('');
+    //searching 
     const [showSearch, setshowSearch] = useState(false);
+
     const [cartItems, setCartItems] = useState({});
 
     const addToCart = async (itemId, size) => {

@@ -15,6 +15,8 @@ function Collection() {
   const [category, setcategory] = useState([]);
   const [subCategory, setsubCategory] = useState([]);
   const [sortType, setSortType] = useState('relavent');
+  const [showSortMobile, setShowSortMobile] = useState(false);
+
 
 
   const toggleCategory = (e) => {
@@ -115,15 +117,101 @@ function Collection() {
       </div>
       {/* Right side */}
       <div className='flex-1'>
-        <div className='flex justify-between text-base sm:text-2xl mb-4'>
+        {/* <div className='flex justify-between text-base sm:text-2xl mb-4'>
           <Title text1={'ALL'} text2={'COLLECTIONS'} />
           {/* Sort Product */}
-          <select onChange={(e) => setSortType(e.target.value)} className='text-sm px-2 border border-gray-300'>
+          {/* <select onChange={(e) => setSortType(e.target.value)} className='text-sm px-2 border border-gray-300'>
             <option value="relavent">Sort by : Relavent</option>
             <option value="lowtohigh">Sort by : Price Low to High</option>
             <option value="hightolow">Sort by : Price High to Low</option>
           </select>
-        </div>
+        </div>  */}
+         
+           <div className="flex justify-between items-center text-base sm:text-2xl mb-4 px-3">
+
+  <Title text1={'ALL'} text2={'COLLECTIONS'} />
+
+  {/* ✅ DESKTOP SORT (SAME AS NOW, CLEAN) */}
+  <div className="relative hidden sm:block">
+    <select
+      onChange={(e) => setSortType(e.target.value)}
+      className="text-sm px-4 py-2 pr-9 border border-gray-400 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-black appearance-none"
+    >
+      <option value="relavent">Sort by : Relevant</option>
+      <option value="lowtohigh">Sort by : Low to High</option>
+      <option value="hightolow">Sort by : High to Low</option>
+    </select>
+
+    <span className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 text-xs">
+      ▼
+    </span>
+  </div>
+
+  {/* ✅ MOBILE SORT BUTTON (PROFESSIONAL) */}
+  <button
+    onClick={() => setShowSortMobile(true)}
+    className="sm:hidden text-sm px-4 py-2 border border-gray-400 rounded-md bg-white"
+  >
+    Sort
+  </button>
+
+</div>
+{showSortMobile && (
+  <div className="fixed inset-0 z-50 bg-black/40 flex items-end">
+
+    <div className="w-full bg-white rounded-t-2xl p-5 animate-slideUp">
+
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-lg font-semibold">Sort By</h2>
+        <button
+          onClick={() => setShowSortMobile(false)}
+          className="text-xl"
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* Options */}
+      <div className="space-y-3 text-sm">
+
+        <button
+          onClick={() => {
+            setSortType("relavent");
+            setShowSortMobile(false);
+          }}
+          className="w-full text-left px-4 py-3 border rounded-lg"
+        >
+          Relevant
+        </button>
+
+        <button
+          onClick={() => {
+            setSortType("lowtohigh");
+            setShowSortMobile(false);
+          }}
+          className="w-full text-left px-4 py-3 border rounded-lg"
+        >
+          Price: Low to High
+        </button>
+
+        <button
+          onClick={() => {
+            setSortType("hightolow");
+            setShowSortMobile(false);
+          }}
+          className="w-full text-left px-4 py-3 border rounded-lg"
+        >
+          Price: High to Low
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+)}
+
+
         {/* Map products */}
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6 '>
           {
@@ -138,4 +226,4 @@ function Collection() {
   )
 }
 
-export default Collection
+export default Collection 

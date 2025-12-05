@@ -31,7 +31,7 @@ function Navbar() {
             <div className='flex items-center gap-6'>
                 <img onClick={() => setshowSearch(!showSearch)} className='w-5 cursor-pointer' src={assets.search_icon} alt="search" />
                 <div className='group relative'>
-                    <img className='w-5 cursor-pointer' src={assets.profile_icon} alt="user" />
+                   <Link>  <img className='w-5 cursor-pointer' src={assets.profile_icon} alt="user" /></Link>
                     <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4 rounded-2xl'>
                         <div className='flex flex-col gap-3  bg-gray-50 p-4 shadow-lg rounded-md w-40 text-gray-700'>
                             <p className='cursor-pointer hover:text-black '>My Profile</p>

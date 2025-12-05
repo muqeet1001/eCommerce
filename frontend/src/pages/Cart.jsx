@@ -25,7 +25,6 @@ function Cart() {
     }
     setcartData(tempData);
   }, [cartItems]);
-
   return (
     <div className='border-t pt-14'>
       <div className='text-2xl mb-3'>

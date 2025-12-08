@@ -5,12 +5,13 @@ const loginUser = async (req,res)=>{
 
 //route for user register
  const registerUser = async (req,res)=>{
-
+   
  }
 
  //route for admin login 
 
  const adminLogin = async (req,rea) =>{
+    
 
  }
 

@@ -4,6 +4,7 @@ import 'dotenv/config'
 import connectDb  from './conf/mongodb.js'
 import connectCloudinary from './conf/cloudinary.js';
 import userRouter from './routes/userRoute.js';
+import ProductRouter from './routes/productRoute.js';
 
 //App confiq
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors());
 
 //api endpoint
 app.use('/api/user',userRouter);
+app.use('api/product',ProductRouter);
 
 app.listen(port, () => console.log("server is running bro"));
 

@@ -18,7 +18,7 @@ app.use(cors());
 
 //api endpoint
 app.use('/api/user',userRouter);
-app.use('api/product',ProductRouter);
+app.use('/api/product',ProductRouter);
 
 app.listen(port, () => console.log("server is running bro"));
 

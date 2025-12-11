@@ -1,22 +1,41 @@
-
+import { v2 as cloudinary } from 'cloudinary'
+import productModel from './../models/productModel.js';
 //function for add product
 const addProduct = async (req, res) => {
-     try{
-        const {name,description,price,category,size,bestseller} = req.body;
-        
-        const image1 = req.files.image1&&req.files.image1[0];
-        const image2 = req.files.image2&&req.files.image2[0];
-        const image3 = req.files.image3&&req.files.image3[0];
-        const image4 = req.files.image4&&req.files.image4[0];
+    try {
+        const { name, description, price, category, sizes, bestseller, subCategory } = req.body;
 
-        console.log(name,description,price,category,size,bestseller);
-       // console.log(image1, image2, image3, image4);
+        const image1 = req.files.image1 && req.files.image1[0];
+        const image2 = req.files.image2 && req.files.image2[0];
+        const image3 = req.files.image3 && req.files.image3[0];
+        const image4 = req.files.image4 && req.files.image4[0];
+        const images = [image1, image2, image3, image4].filter((item) => item != undefined);
 
-        res.json({})
-     }
-     catch (e){
-         console.log(e);
-     }
+        let imagesUrl = await Promise.all(
+            images.map(async (item) => {
+                let result = await cloudinary.uploader.upload(item.path, { resource_type: 'image' });
+                return result.secure_url
+            })
+        )
+        const productData = {
+            name,
+            description,
+            category,
+            price: Number(price),
+            subCategory,
+            bestseller: bestseller === "true" ? true : false,
+            sizes: JSON.parse(sizes),
+            image: imagesUrl,
+            date: Date.now()
+        }
+        console.log(productData);
+        const product = new productModel(productData);
+        await product.save();
+        res.json({ "success": true, "msg": "product addes succesfully" })
+    }
+    catch (e) {
+        console.log(e);
+    }
 }
 //function for list product
 const listProduct = async (req, res) => {
@@ -31,4 +50,4 @@ const singleProduct = async (req, res) => {
 
 }
 
-export{addProduct,removeProduct,singleProduct,listProduct};
+export { addProduct, removeProduct, singleProduct, listProduct };

@@ -3,6 +3,7 @@ import userModel from './../models/userModel.js';
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import validator from "validator";
+ 
 
 
 const createToken = (id) => {
@@ -72,9 +73,19 @@ const registerUser = async (req, res) => {
 //route for admin login 
 
 const adminLogin = async (req, res) => {
-
-
+    try {
+        const { email, password } = req.body;
+        if (email == process.env.ADMIN_EMAIL && password == process.env.ADMIN_PASSWORD) {
+            const token = jwt.sign(email+password,"mqt");
+            res.json({success:true,token})
+        }
+        else{
+            res.json({success:false,msg:"envalid credientials"})
+        }
+    }
+    catch (error) {
+          res.json({msg:error.message})
+    }
 }
-
 
 export { loginUser, registerUser, adminLogin }

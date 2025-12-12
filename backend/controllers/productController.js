@@ -4,13 +4,13 @@ import productModel from './../models/productModel.js';
 const addProduct = async (req, res) => {
     try {
         const { name, description, price, category, sizes, bestseller, subCategory } = req.body;
-
+       //taking images
         const image1 = req.files.image1 && req.files.image1[0];
         const image2 = req.files.image2 && req.files.image2[0];
         const image3 = req.files.image3 && req.files.image3[0];
         const image4 = req.files.image4 && req.files.image4[0];
         const images = [image1, image2, image3, image4].filter((item) => item != undefined);
-
+        //uploading images
         let imagesUrl = await Promise.all(
             images.map(async (item) => {
                 let result = await cloudinary.uploader.upload(item.path, { resource_type: 'image' });

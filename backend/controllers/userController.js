@@ -7,7 +7,7 @@ import validator from "validator";
 
 
 const createToken = (id) => {
-    return jwt.sign({ id }, "muqeet");
+    return jwt.sign({ id }, "mqt");
 }
 
 const loginUser = async (req, res) => {
@@ -38,13 +38,11 @@ const registerUser = async (req, res) => {
 
         //checking user already exists
         const exits = await userModel.findOne({ email });
-
+         
         if (exits) {
             return res.json({ success: false, message: "please enter different email user already exitst" });
         }
-        if (!validator.isEmail(email)) {
-            return res.json({ success: false, message: "please enter a valid email" });
-        }
+        
         if (password.length < 8) {
             return res.json({ success: false, message: "please enter a strong password" });
         }
